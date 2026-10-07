@@ -79,6 +79,12 @@ int main(void)
         printf("FILA %d EVENTOS %d IMPACTO %d RACHA %d INICIO %d\n",
                i + 1, eventos_fila[i], impacto_fila[i], racha_fila[i], inicio_fila[i]);
     }
+        /* Vector con la cantidad de eventos de cada columna */
+    printf("COLUMNAS");
+    for (j = 0; j < M; j++) {
+        printf(" %d", eventos_col[j]);
+    }
+    printf("\n");
     return 0;
 }
 
