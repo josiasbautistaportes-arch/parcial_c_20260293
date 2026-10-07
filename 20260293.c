@@ -9,6 +9,7 @@ int main(void)
     int f, x, dif;
     int racha_fila[30], inicio_fila[30];
     int racha_actual, inicio_actual;
+    int prioridad, columna, mayor;
 
     /* Se leen las dimensiones y se validan antes de leer cualquier otro dato */
     scanf("%d %d", &N, &M);
@@ -85,6 +86,36 @@ int main(void)
         printf(" %d", eventos_col[j]);
     }
     printf("\n");
+
+        /* Fila prioritaria: racha, luego impacto, luego eventos; en empate se queda la menor */
+    prioridad = 0;
+    for (i = 0; i < N; i++) {
+        if (eventos_fila[i] > 0) {
+            if (prioridad == 0
+                || racha_fila[i] > racha_fila[prioridad - 1]
+                || (racha_fila[i] == racha_fila[prioridad - 1]
+                    && impacto_fila[i] > impacto_fila[prioridad - 1])
+                || (racha_fila[i] == racha_fila[prioridad - 1]
+                    && impacto_fila[i] == impacto_fila[prioridad - 1]
+                    && eventos_fila[i] > eventos_fila[prioridad - 1])) {
+                prioridad = i + 1;
+            }
+        }
+    }
+
+    /* Columna destacada: la de mas eventos; en empate, la menor */
+    columna = 0;
+    mayor = 0;
+    for (j = 0; j < M; j++) {
+        if (eventos_col[j] > mayor) {
+            mayor = eventos_col[j];
+            columna = j + 1;
+        }
+    }
+
+    printf("PRIORIDAD %d\n", prioridad);
+    printf("COLUMNA %d\n", columna);
+    
     return 0;
 }
 
