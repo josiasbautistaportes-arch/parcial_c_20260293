@@ -99,21 +99,24 @@ int main(void)
     printf("\n");
 
         /* Fila prioritaria: racha, luego impacto, luego eventos; en empate se queda la menor */
-    prioridad = 0;
+        prioridad = 0;
     for (i = 0; i < N; i++) {
         if (eventos_fila[i] > 0) {
-            if (prioridad == 0
-                || racha_fila[i] > racha_fila[prioridad - 1]
-                || (racha_fila[i] == racha_fila[prioridad - 1]
-                    && impacto_fila[i] > impacto_fila[prioridad - 1])
-                || (racha_fila[i] == racha_fila[prioridad - 1]
-                    && impacto_fila[i] == impacto_fila[prioridad - 1]
-                    && eventos_fila[i] > eventos_fila[prioridad - 1])) {
+            if (prioridad == 0) {
                 prioridad = i + 1;
+            } else if (racha_fila[i] > racha_fila[prioridad - 1]) {
+                prioridad = i + 1;
+            } else if (racha_fila[i] == racha_fila[prioridad - 1]) {
+                if (impacto_fila[i] > impacto_fila[prioridad - 1]) {
+                    prioridad = i + 1;
+                } else if (impacto_fila[i] == impacto_fila[prioridad - 1]
+                           && eventos_fila[i] > eventos_fila[prioridad - 1]) {
+                    prioridad = i + 1;
+                }
             }
         }
     }
-
+    
     /* Columna destacada: la de mas eventos; en empate, la menor */
     columna = 0;
     mayor = 0;
@@ -129,4 +132,6 @@ int main(void)
     
     return 0;
 }
+
+
 
