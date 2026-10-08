@@ -19,10 +19,10 @@ COLUMNA 2
 ```
 
 Justificación:
-- En la fila 1, f = 10. Las columnas 2, 3 y 4 son eventos seguidos (diferencias 3, 2 y 5, que tocan los dos límites). Eso da racha 3 con inicio en la columna 2. La columna 5 vale 10, la diferencia es 0 y rompe la racha, y la columna 6 forma otra racha de 1.
-- En la fila 2, f = 9. Los eventos están separados por valores iguales a f, así que ninguna racha pasa de 1 y se conserva la primera (inicio 2).
-- Las columnas 2, 4 y 6 empatan con 2 eventos. Se elige la menor, la columna 2.
-- La fila 1 gana la prioridad por tener mayor racha.
+- En la fila 1, f = 10. Las columnas 2, 3 y 4 son eventos seguidos (diferencias 3, 2 y 5). La racha es de 3 y empieza en la columna 2. La columna 5 vale 10, la diferencia es 0 y corta la racha. La columna 6 es otro evento, pero su racha es de solo 1.
+- En la fila 2, f = 9. Los eventos están separados por valores iguales a f, así que ninguna racha pasa de 1 y se queda la primera (inicio 2).
+- Las columnas 2, 4 y 6 tienen 2 eventos cada una. Gana la menor, la 2.
+- La fila 1 es la prioritaria porque tiene la racha más larga.
 
 ## Prueba propia 2: desempates de la fila prioritaria
 
@@ -45,8 +45,8 @@ COLUMNA 2
 ```
 
 Justificación:
-- Las tres filas tienen racha 1, así que el primer criterio empata.
-- La fila 1 tiene impacto 15 y las filas 2 y 3 tienen impacto 19. La fila 1 queda descartada por el segundo criterio.
-- Las filas 2 y 3 empatan en racha, impacto y eventos, y gana la de menor número: la 2.
-- El valor 40 de la fila 2 es mayor que f, y el valor 20 de la fila 1 es igual a f. Ninguno genera evento.
-- Las columnas 2 y 4 empatan con 3 eventos, y se elige la menor: la 2.
+- Las tres filas tienen racha 1, así que ese criterio empata.
+- La fila 1 tiene impacto 15 y las filas 2 y 3 tienen 19, así que la fila 1 queda fuera.
+- Las filas 2 y 3 empatan en todo y gana la de número menor, la 2.
+- El 40 de la fila 2 es mayor que f y el 20 de la fila 1 es igual a f, así que ninguno es evento.
+- Las columnas 2 y 4 tienen 3 eventos cada una. Gana la 2.
