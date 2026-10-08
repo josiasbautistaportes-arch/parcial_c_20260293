@@ -1,3 +1,14 @@
+/***********************************************************/
+/*           Programación para mecatrónicos                */
+/*  Nombre:    Josías Bautista                             */
+/*  Matricula: 2026-0293                                   */
+/*  Seccion:   Sábados (9-12pm)                            */
+/*  Practica:  Primer examen parcial                       */
+/*  Fecha:     07/10/2026                                  */                       
+/* Link Practica:                                          */
+/***********************************************************/
+
+
 #include <stdio.h>
 
 int main(void)
