@@ -33,9 +33,9 @@
 ## Pseudocódigo: eventos e impacto
 Para cada fila i:
 - f = matriz[i][0]; eventos = 0; impacto = 0
-- Para j desde 1 hasta M-1:
+- - Para j desde 0 hasta M-1:
   - x = matriz[i][j]; dif = f - x
-  - Si dif >= L y dif <= U: es evento
+  - - Si j >= 1 y dif >= L y dif <= U: es evento (la primera columna nunca es evento)
     - eventos = eventos + 1
     - impacto = impacto + dif + 1
     - eventos_col[j] = eventos_col[j] + 1
